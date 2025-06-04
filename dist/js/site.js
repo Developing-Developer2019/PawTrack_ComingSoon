@@ -7,17 +7,96 @@ let countdownElements = {};
 /**
  * Initialize countdown timer - iOS Safari Compatible
  */
+// Mobile-friendly date display replacement for countdown
+function initializeMobileDateDisplay() {
+  // Set your launch date here
+  const launchDate = new Date(2025, 10, 22); // November 22, 2025
+
+  // Check if mobile device
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+  const isSmallScreen = window.innerWidth <= 768;
+
+  if (isMobile || isSmallScreen) {
+    // Replace countdown with date display
+    replaceCountdownWithDate(launchDate);
+  } else {
+    // Keep original countdown for desktop
+    initializeCountdown();
+  }
+
+  // Handle window resize
+  window.addEventListener("resize", function () {
+    const isNowSmall = window.innerWidth <= 768;
+    if (isNowSmall && !document.getElementById("launch-date-display")) {
+      replaceCountdownWithDate(launchDate);
+    } else if (!isNowSmall && document.getElementById("launch-date-display")) {
+      restoreCountdown();
+      initializeCountdown();
+    }
+  });
+}
+
+function replaceCountdownWithDate(launchDate) {
+  const countdownRow = document.querySelector(".row.g-3.mb-3");
+  if (!countdownRow) return;
+
+  // Format the date nicely
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const formattedDate = launchDate.toLocaleDateString("en-GB", options);
+
+  // Create new date display
+  const dateDisplay = document.createElement("div");
+  dateDisplay.id = "launch-date-display";
+  dateDisplay.className = "text-center mb-3";
+  dateDisplay.innerHTML = `
+    <div class="card launch-date-card p-4 shadow-sm">
+      <div class="launch-date-icon mb-3">
+        <i class="fas fa-calendar-alt text-primary" style="font-size: 2.5rem;"></i>
+      </div>
+      <div class="launch-date-text">
+        <h4 class="fw-bold text-primary mb-2">Launch Date</h4>
+        <p class="h5 mb-2">${formattedDate}</p>
+        <p class="text-muted small mb-0">Mark your calendar!</p>
+      </div>
+    </div>
+  `;
+
+  // Hide countdown and show date
+  countdownRow.style.display = "none";
+  countdownRow.parentNode.insertBefore(dateDisplay, countdownRow);
+}
+
+function restoreCountdown() {
+  const dateDisplay = document.getElementById("launch-date-display");
+  const countdownRow = document.querySelector(".row.g-3.mb-3");
+
+  if (dateDisplay) {
+    dateDisplay.remove();
+  }
+
+  if (countdownRow) {
+    countdownRow.style.display = "";
+  }
+}
+
+// Your existing countdown function (simplified for desktop)
 function initializeCountdown() {
   try {
-    // Cache DOM elements
-    countdownElements = {
+    const countdownElements = {
       days: document.getElementById("days"),
       hours: document.getElementById("hours"),
       minutes: document.getElementById("minutes"),
       seconds: document.getElementById("seconds"),
     };
 
-    // Check if elements exist
     const missingElements = Object.keys(countdownElements).filter(
       (key) => !countdownElements[key]
     );
@@ -26,19 +105,10 @@ function initializeCountdown() {
       return;
     }
 
-    // Create launch date - iOS Safari compatible
-    let launchDate = new Date(2025, 10, 22, 10, 0, 0, 0); // November 22, 2025 10:00 AM
+    const launchDate = new Date(2025, 10, 22, 10, 0, 0, 0);
 
-    // Fallback if date creation fails
     if (isNaN(launchDate.getTime())) {
-      launchDate = new Date();
-      launchDate.setFullYear(2025, 10, 22);
-      launchDate.setHours(10, 0, 0, 0);
-    }
-
-    // Final validation
-    if (isNaN(launchDate.getTime())) {
-      setDefaultCountdown();
+      setDefaultCountdown(countdownElements);
       return;
     }
 
@@ -57,61 +127,46 @@ function initializeCountdown() {
           );
           const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-          updateCountdownDisplay("days", days);
-          updateCountdownDisplay("hours", hours);
-          updateCountdownDisplay("minutes", minutes);
-          updateCountdownDisplay("seconds", seconds);
+          updateCountdownDisplay(countdownElements, "days", days);
+          updateCountdownDisplay(countdownElements, "hours", hours);
+          updateCountdownDisplay(countdownElements, "minutes", minutes);
+          updateCountdownDisplay(countdownElements, "seconds", seconds);
         } else {
-          if (countdownTimer) {
-            clearInterval(countdownTimer);
-            countdownTimer = null;
+          if (window.countdownTimer) {
+            clearInterval(window.countdownTimer);
+            window.countdownTimer = null;
           }
-          setDefaultCountdown();
+          setDefaultCountdown(countdownElements);
         }
       } catch (error) {
         console.error("Error updating countdown:", error);
-        setDefaultCountdown();
+        setDefaultCountdown(countdownElements);
       }
     }
 
-    function updateCountdownDisplay(elementId, value) {
-      const element = countdownElements[elementId];
+    function updateCountdownDisplay(elements, elementId, value) {
+      const element = elements[elementId];
       if (element) {
         const numValue = Math.max(0, Math.floor(Number(value)) || 0);
         element.textContent = numValue.toString().padStart(2, "0");
       }
     }
 
-    function setDefaultCountdown() {
-      Object.keys(countdownElements).forEach((key) => {
-        if (countdownElements[key]) {
-          countdownElements[key].textContent = "00";
+    function setDefaultCountdown(elements) {
+      Object.keys(elements).forEach((key) => {
+        if (elements[key]) {
+          elements[key].textContent = "00";
         }
       });
     }
 
-    // Clear existing timer
-    if (countdownTimer) {
-      clearInterval(countdownTimer);
-      countdownTimer = null;
+    if (window.countdownTimer) {
+      clearInterval(window.countdownTimer);
+      window.countdownTimer = null;
     }
 
-    // Start countdown
     updateCountdown();
-    countdownTimer = setInterval(updateCountdown, 1000);
-
-    // iOS Safari visibility handling
-    document.addEventListener("visibilitychange", function () {
-      if (!document.hidden && countdownTimer) {
-        updateCountdown();
-      }
-    });
-
-    window.addEventListener("focus", function () {
-      if (countdownTimer) {
-        updateCountdown();
-      }
-    });
+    window.countdownTimer = setInterval(updateCountdown, 1000);
   } catch (error) {
     console.error("Error initializing countdown:", error);
     ["days", "hours", "minutes", "seconds"].forEach((id) => {
@@ -153,11 +208,7 @@ function initializeMDBComponents() {
         new mdb.Modal(element);
       }
     });
-
-    console.log("MDB Components initialized successfully");
-  } catch (error) {
-    console.warn("Error initializing MDB components:", error);
-  }
+  } catch (error) {}
 }
 
 /**
@@ -241,8 +292,6 @@ function enableGoogleAnalytics() {
       allow_google_signals: false,
       allow_ad_personalization_signals: false,
     });
-
-    console.log("Google Analytics enabled");
   }
 }
 
@@ -254,8 +303,6 @@ function disableGoogleAnalytics() {
     gtag("consent", "update", {
       analytics_storage: "denied",
     });
-
-    console.log("Google Analytics disabled");
   }
 
   clearGoogleAnalyticsCookies();
@@ -286,8 +333,6 @@ function clearGoogleAnalyticsCookies() {
     const rootDomain = window.location.hostname.split(".").slice(-2).join(".");
     document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${rootDomain};`;
   });
-
-  console.log("Google Analytics cookies cleared");
 }
 
 /**
@@ -682,22 +727,31 @@ documentReady(function () {
     }, 100);
   }
 
-  // Add small delay for iOS Safari
-  setTimeout(() => {
-    initializeCountdown();
-    initializeCookieConsent();
-    initializeFormHandling();
-    initializeSmoothScrolling();
-    initializeRangeSlider();
-    initializeServiceCheckboxes();
-    initializePrivacyModal();
-  }, 50);
-});
+  // Start the mobile-friendly initialization
+  documentReady(function () {
+    setTimeout(() => {
+      initializeMobileDateDisplay();
 
-// Cleanup
-window.addEventListener("beforeunload", function () {
-  if (countdownTimer) {
-    clearInterval(countdownTimer);
-    countdownTimer = null;
-  }
+      // Initialize other components
+      if (typeof initializeCookieConsent === "function")
+        initializeCookieConsent();
+      if (typeof initializeFormHandling === "function")
+        initializeFormHandling();
+      if (typeof initializeSmoothScrolling === "function")
+        initializeSmoothScrolling();
+      if (typeof initializeRangeSlider === "function") initializeRangeSlider();
+      if (typeof initializeServiceCheckboxes === "function")
+        initializeServiceCheckboxes();
+      if (typeof initializePrivacyModal === "function")
+        initializePrivacyModal();
+    }, 100);
+  });
+
+  // Cleanup
+  window.addEventListener("beforeunload", function () {
+    if (countdownTimer) {
+      clearInterval(countdownTimer);
+      countdownTimer = null;
+    }
+  });
 });
