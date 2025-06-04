@@ -1,0 +1,28 @@
+# Security Headers (must be HTTP headers, not meta tags)
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-XSS-Protection: 1; mode=block
+
+# MIME Types
+*.js
+  Content-Type: text/javascript; charset=utf-8
+
+*.css
+  Content-Type: text/css; charset=utf-8
+
+*.woff2
+  Content-Type: font/woff2
+
+*.woff
+  Content-Type: font/woff
+
+*.png
+  Content-Type: image/png
+
+*.jpg
+  Content-Type: image/jpeg
+
+*.svg
+  Content-Type: image/svg+xml
