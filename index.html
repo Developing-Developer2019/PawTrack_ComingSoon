@@ -2,108 +2,873 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PawTrack – Pet Service Business Management Software (UK)</title>
-    <meta name="description"
-        content="PawTrack is the all-in-one platform for UK pet groomers, dog walkers, and trainers. Manage appointments, clients, pets, and payments — all in one place.">
-    <meta name="author" content="PawTrack">
-    <meta name="robots" content="index, follow">
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-language" content="en-GB" />
 
-    <!-- Google Fonts example (can change to match your brand later) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lato:wght@300;400;700&display=swap"
-        rel="stylesheet">
-        <link rel="stylesheet" href="./css/style.css">
-        <link rel="icon" href="./img/favicon/favicon.ico" type="image/x-icon">
+    <!-- Primary Meta Tags -->
+    <title>PawTrack – Pet Business Software for UK Groomers, Walkers & Trainers</title>
+    <meta name="title" content="PawTrack – Pet Business Software for UK Groomers, Walkers & Trainers" />
+    <meta name="description"
+        content="PawTrack is the all-in-one UK platform for pet groomers, dog walkers, and trainers. Manage appointments, clients, pets, payments, and more with ease. Coming soon with early access." />
+    <meta name="author" content="PawTrack" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords"
+        content="pet grooming software UK, dog walker booking app, pet business management system, groomer appointment scheduling, dog training client management, pet service CRM UK, mobile pet grooming software, dog daycare management app, pet boarding software, animal care business tools" />
+
+    <!-- Geographic & Localization -->
+    <meta name="geo.region" content="GB" />
+    <meta name="geo.placename" content="United Kingdom" />
+    <link rel="canonical" href="https://pawtrack.uk/" />
+    <link rel="alternate" hreflang="en-GB" href="https://pawtrack.uk/" />
+    <link rel="alternate" hreflang="x-default" href="https://pawtrack.uk/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pawtrack.uk/" />
+    <meta property="og:title" content="PawTrack – Pet Business Software for UK Providers" />
+    <meta property="og:description"
+        content="Join the all-in-one platform to manage bookings, clients, pets, and payments — tailored for UK pet professionals. Early access coming soon." />
+    <meta property="og:image" content="https://pawtrack.uk/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="PawTrack - Pet Business Management Software" />
+    <meta property="og:site_name" content="PawTrack" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://pawtrack.uk/" />
+    <meta name="twitter:title" content="PawTrack – Pet Business Software for UK Providers" />
+    <meta name="twitter:description"
+        content="Manage your pet service business in one place – bookings, clients, and payments. Early access to be announced." />
+    <meta name="twitter:image" content="https://pawtrack.uk/img/og-image.jpg" />
+    <meta name="twitter:image:alt" content="PawTrack - Pet Business Management Software" />
+    <meta name="twitter:creator" content="@pawtrackuk" />
+    <meta name="twitter:site" content="@pawtrackuk" />
+
+    <!-- Mobile & PWA Meta Tags -->
+    <meta name="theme-color" content="#1A579E" />
+    <meta name="msapplication-navbutton-color" content="#1A579E" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="PawTrack" />
+    <meta name="msapplication-TileColor" content="#1A579E" />
+
+    <!-- Preconnect to External Domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="preconnect" href="https://formsubmit.co" />
+    <link rel="preconnect" href="https://www.google.com" />
+
+    <!-- DNS Prefetch for Performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+    <!-- Favicon Package -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="./img/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="./img/favicon/safari-pinned-tab.svg" color="#1A579E" />
+    <link rel="shortcut icon" href="./img/favicon/favicon.ico" />
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="./dist/css/site.min.css" as="style" />
+    <link rel="preload" href="./css/style.css" as="style" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    </noscript>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./dist/css/site.min.css" />
+
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google.com https://www.google-analytics.com https://www.gstatic.com https://www.recaptcha.net https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://formsubmit.co; frame-src https://www.google.com https://www.recaptcha.net;" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+
+    <!-- Structured Data / JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "PawTrack",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "description": "All-in-one platform for pet groomers, dog walkers, and trainers to manage bookings, clients, pets, and payments in the UK.",
+        "url": "https://pawtrack.uk",
+        "image": "https://pawtrack.uk/img/og-image.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "PawTrack",
+            "url": "https://pawtrack.uk",
+            "sameAs": [
+                "https://www.facebook.com/profile.php?id=61576259101423"
+            ]
+        },
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Pet service professionals",
+            "geographicArea": {
+                "@type": "Country",
+                "name": "United Kingdom"
+            }
+        },
+        "serviceType": [
+            "Pet Grooming Software",
+            "Dog Walking Management",
+            "Pet Training Business Tools",
+            "Pet Boarding Management",
+            "Pet Daycare Software"
+        ],
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/PreOrder",
+            "price": "0",
+            "priceCurrency": "GBP",
+            "description": "Early access registration - free to join"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "@id": "https://pawtrack.uk/#rating"
+        }
+    }
+    </script>
+
+    <!-- Local Business Schema for UK targeting -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PawTrack",
+        "url": "https://pawtrack.uk",
+        "logo": "https://pawtrack.uk/img/logo-text.png",
+        "description": "Pet business management software for UK professionals",
+        "areaServed": {
+            "@type": "Country",
+            "name": "United Kingdom"
+        },
+        "serviceArea": {
+            "@type": "Country",
+            "name": "United Kingdom"
+        },
+        "sameAs": [
+            "https://www.facebook.com/profile.php?id=61576259101423"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "support@pawtrack.uk",
+            "areaServed": "GB",
+            "availableLanguage": "English"
+        }
+    }
+    </script>
+
+    <!-- Website Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PawTrack",
+        "url": "https://pawtrack.uk",
+        "description": "Pet business software for UK groomers, walkers and trainers",
+        "inLanguage": "en-GB",
+        "publisher": {
+            "@type": "Organization",
+            "name": "PawTrack"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://pawtrack.uk/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- Google Analytics - GDPR Compliant -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XT881QNV2H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+
+        // Set default consent states (denied by default for GDPR compliance)
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'functionality_storage': 'denied',
+            'personalization_storage': 'denied',
+            'security_storage': 'granted',
+        });
+
+        gtag('js', new Date());
+
+        // Check if user has already consented
+        const consentStatus = localStorage.getItem('pawtrack_cookie_consent');
+
+        if (consentStatus === 'true') {
+            gtag('consent', 'update', {
+                'analytics_storage': 'granted'
+            });
+
+            gtag('config', 'G-XT881QNV2H', {
+                'anonymize_ip': true,
+                'allow_google_signals': false,
+                'allow_ad_personalization_signals': false
+            });
+        } else if (consentStatus === 'declined') {
+            window['ga-disable-G-XT881QNV2H'] = true;
+        }
+    </script>
+
+    <!-- Preload Critical JavaScript -->
+    <link rel="modulepreload" href="./js/site.js" />
+
+    <!-- Performance Hint -->
+    <meta name="format-detection" content="telephone=no" />
 </head>
 
-<body>
-    <section class="coming-soon">
-        <div class="container">
-            <div class="content">
-                <div class="logo">
-                    <img src="./img/logo-text.png" alt="PawTrack Logo">
-                </div>
+<body class="bg-primary-secondary">
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center">
+        <div class="container hero-content">
 
-                <h1 class="coming-soon-title">We're <span>Almost</span> Ready!</h1>
-                <p class="coming-soon-subtitle">
-                    <strong>PawTrack is coming soon</strong> to help pet service professionals <em>streamline their
-                        businesses</em>. We're <em>putting the finishing touches</em> on something
-                    <strong>amazing</strong>.
-                </p>
-
-
-                <div class="countdown">
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="days">0</span>
-                        <span class="countdown-label">Days</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="hours">0</span>
-                        <span class="countdown-label">Hours</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="minutes">0</span>
-                        <span class="countdown-label">Minutes</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="seconds">0</span>
-                        <span class="countdown-label">Seconds</span>
-                    </div>
-                </div>
-
-                <div class="updates-section">
-                    <h3 class="updates-title">
-                        Stay Updated on Our Progress
-                    </h3>
-                    <p class="updates-message">
-                        Follow us on Facebook to get the latest updates on our progress and
-                        launch date:
-                    </p>
-
-                    <a href="https://www.facebook.com/profile.php?id=61576259101423" target="_blank"
-                        class="facebook-button">
-                        <i class="fab fa-facebook-f"></i>
-                        <span>
-                            Follow us on Facebook
-                        </span>
-                    </a>
-
-                    <p class="updates-note">
-                        <small>
-                            We'll be sharing exclusive sneak peeks and launch information with our Facebook community!
-                        </small>
-                    </p>
-                </div>
-
-                <div class="social-links">
-                    <!-- <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a> -->
-                </div>
+            <div class="floating-elements">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
             </div>
 
-            <div class="illustration">
-                <img src="https://images.unsplash.com/photo-1589652739890-77a7733b8a23?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Pet professional contemplating coding using tablet">
+            <div class="row align-items-center min-vh-100 py-5">
+                <!-- Content Column -->
+                <div class="col-xl-6 col-lg-8 col-md-12">
+                    <!-- Logo -->
+                    <div class="mb-3">
+                        <img src="./img/logo-text.png" alt="PawTrack Logo" class="img-fluid" style="height: 40px;">
+                    </div>
+
+                    <!-- Hero Title -->
+                    <h1 class="hero-title mb-3">
+                        We're <span class="text-primary">Almost</span> Ready!
+                    </h1>
+
+                    <!-- Hero Subtitle -->
+                    <p class="hero-subtitle mb-3">
+                        <strong>PawTrack is coming soon</strong> to help pet professionals <em>simplify how they
+                            work</em> and <strong>connect</strong> with <strong>clients</strong> in <em>ways they
+                            haven't seen before</em>.
+                    </p>
+
+                    <p class="hero-subtitle mb-3">
+                        It's like <em>social media</em> - but for <strong>your pet business</strong>.
+                    </p>
+
+                    <!-- Countdown Timer -->
+                    <div class="row g-3 mb-3">
+                        <div class="col-3">
+                            <div class="card countdown-card text-center p-3 shadow-sm">
+                                <div class="countdown-number" id="days">0</div>
+                                <div class="countdown-label">Days</div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card countdown-card text-center p-3 shadow-sm">
+                                <div class="countdown-number" id="hours">0</div>
+                                <div class="countdown-label">Hours</div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card countdown-card text-center p-3 shadow-sm">
+                                <div class="countdown-number" id="minutes">0</div>
+                                <div class="countdown-label">Minutes</div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card countdown-card text-center p-3 shadow-sm">
+                                <div class="countdown-number" id="seconds">0</div>
+                                <div class="countdown-label">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <!-- CTA Section -->
+                            <div class="mb-3">
+                                <h3 class="h4 fw-bold mb-3">
+                                    <i class="fa-solid fa-paw text-primary me-2"></i>
+                                    Be the First to Know
+                                </h3>
+                                <p class="text-muted">
+                                    Get behind-the-scenes updates, launch alerts, and sneak peeks.
+                                    <br>
+                                    Straight from the pack.
+                                </p>
+
+                                <div class="btn-group w-100 btn-group-lg" role="group" aria-label="Basic example">
+                                    <button href="https://www.facebook.com/profile.php?id=61576259101423"
+                                        target="_blank" class="btn btn-primary btn-lg z-max" type="button"
+                                        data-mdb-ripple-init>
+                                        <i class="fab fa-facebook-f me-2"></i>
+                                        Follow us on Facebook
+                                    </button>
+                                    <button type="button" href="#early-access-form"
+                                        class="btn btn-secondary z-max btn-lg" data-mdb-ripple-init>
+                                        <i class="fas fa-rocket me-2"></i>
+                                        Apply for Early Access
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div data-mdb-alert-init class="alert" role="alert" data-mdb-color="info">
+                                    We'll be sharing exclusive sneak peeks and launch information with our Facebook
+                                    community!
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Column -->
+                <div class="col-xl-6 col-lg-4 col-md-12 text-center">
+                    <div class="position-relative">
+                        <img src="./img/fb-banner.png" alt="Pet professional with tablet"
+                            class="img-fluid rounded-5 shadow-lg">
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="bg-elements">
-            <div class="bg-element bg-element-1"></div>
-            <div class="bg-element bg-element-2"></div>
-            <div class="bg-element bg-element-3"></div>
-            <div class="bg-element bg-element-4"></div>
-
-            <div class="bg-element bg-element-5"></div>
-            <div class="bg-element bg-element-6"></div>
-            <div class="bg-element bg-element-7"></div>
-            <div class="bg-element bg-element-8"></div>
-            <div class="bg-element bg-element-9"></div>
-            <div class="bg-element bg-element-10"></div>
         </div>
     </section>
 
+    <!-- Questionnaire Section -->
+    <section class="form-questionnaire py-5" id="early-access-form">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <!-- Header -->
+                    <div class="text-center mb-3">
+                        <h2 class="h3 fw-bold mb-3 text-primary">
+                            <i class="fa-solid fa-paw me-2"></i>
+                            Help Shape PawTrack
+                        </h2>
+
+                        <div class="alert alert-success" role="alert" data-mdb-alert-init>
+                            <i class="fas fa-party-horn me-2"></i>
+                            By filling out this form, you'll be added to our Early Access list.
+                        </div>
+
+                        <div class="alert alert-primary" role="alert" data-mdb-alert-init>
+                            <i class="fas fa-lightbulb me-2"></i>
+                            We're building the future of pet business software — and we want your voice to shape it.
+                        </div>
+
+                        <div class="alert alert-info" role="alert" data-mdb-alert-init>
+                            <i class="fas fa-clock me-2"></i>
+                            It only takes a couple of minutes — your insights matter.
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <form action="https://formsubmit.co/support@pawtrack.uk" method="POST" class="card shadow-sm">
+                        <div class="card-body p-4">
+
+                            <!-- FormSubmit Configuration Fields (Hidden) -->
+                            <input type="hidden" name="_subject" value="New PawTrack Early Access Application">
+                            <input type="hidden" name="_next" value="/">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_autoresponse"
+                                value="Thank you for your interest in PawTrack! We'll be in touch soon with early access information.">
+
+                            <!-- Question 1: Service Types -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold mb-3">
+                                    <i class="fas fa-briefcase text-primary me-2"></i>
+                                    What type of pet service do you offer?
+                                </label>
+
+                                <div class="border rounded p-3" style="max-height: 400px; overflow-y: auto;">
+                                    <!-- Primary Services -->
+                                    <h6 class="text-muted fw-bold mb-3">Primary Services</h6>
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="dogGrooming" name="services[]" value="Dog Grooming">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="dogGrooming">
+                                                <i class="fas fa-cut text-primary me-2"></i>
+                                                Dog Grooming
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="catGrooming" name="services[]" value="Cat Grooming">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="catGrooming">
+                                                <i class="fas fa-cat text-primary me-2"></i>
+                                                Cat Grooming
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="dogWalking" name="services[]" value="Dog Walking">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="dogWalking">
+                                                <i class="fas fa-walking text-primary me-2"></i>
+                                                Dog Walking
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="petSitting" name="services[]" value="Pet Sitting">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="petSitting">
+                                                <i class="fas fa-home text-primary me-2"></i>
+                                                Pet Sitting
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="petBoarding" name="services[]" value="Pet Boarding">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="petBoarding">
+                                                <i class="fas fa-bed text-primary me-2"></i>
+                                                Pet Boarding
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="dogTraining" name="services[]" value="Dog Training">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="dogTraining">
+                                                <i class="fas fa-graduation-cap text-primary me-2"></i>
+                                                Dog Training
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Healthcare & Wellness -->
+                                    <h6 class="text-muted fw-bold mb-3">Healthcare & Wellness</h6>
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="vetTech" name="services[]" value="Veterinary Tech Services">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="vetTech">
+                                                <i class="fas fa-stethoscope text-success me-2"></i>
+                                                Veterinary Tech Services
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="massage" name="services[]" value="Pet Massage Therapy">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="massage">
+                                                <i class="fas fa-spa text-success me-2"></i>
+                                                Pet Massage Therapy
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="acupuncture" name="services[]" value="Pet Acupuncture">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="acupuncture">
+                                                <i class="fas fa-leaf text-success me-2"></i>
+                                                Pet Acupuncture
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Specialty Services -->
+                                    <h6 class="text-muted fw-bold mb-3">Specialty & Creative Services</h6>
+                                    <div class="row g-2">
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="exotic" name="services[]" value="Exotic Animal Care">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="exotic">
+                                                <i class="fas fa-dragon text-warning me-2"></i>
+                                                Exotic Animal Care
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="photography" name="services[]" value="Pet Photography">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="photography">
+                                                <i class="fas fa-camera text-warning me-2"></i>
+                                                Pet Photography
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="daycare" name="services[]" value="Dog Daycare">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="daycare">
+                                                <i class="fas fa-users text-warning me-2"></i>
+                                                Dog Daycare
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-check-input service-checkbox d-none" type="checkbox"
+                                                id="equine" name="services[]" value="Horse Training / Equine Care">
+                                            <label class="service-label form-check-label d-block p-3 rounded"
+                                                for="equine">
+                                                <i class="fas fa-horse text-warning me-2"></i>
+                                                Horse Training / Equine Care
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Question 2: Current Tools -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                    What tools or software do you currently use to manage your business?
+                                </label>
+                                <div class="form-outline" data-mdb-input-init>
+                                    <input type="text" class="form-control" id="currentTools" name="current_tools">
+                                    <label class="form-label" for="currentTools">e.g., Fresha, Google Calendar, pen and
+                                        paper</label>
+                                </div>
+                            </div>
+
+                            <!-- Question 3: Most frustrating part -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-exclamation-triangle text-warning me-2"></i>
+                                    What's the most frustrating or time-consuming part of running your pet service
+                                    business?
+                                </label>
+                                <div class="form-outline" data-mdb-input-init>
+                                    <textarea class="form-control" rows="3" id="frustrations"
+                                        name="frustrations"></textarea>
+                                    <label class="form-label" for="frustrations">Your answer...</label>
+                                </div>
+                            </div>
+
+                            <!-- Question 4: Lost customer -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold mb-3">
+                                    <i class="fas fa-chart-line-down text-danger me-2"></i>
+                                    Have you ever lost a customer due to scheduling or communication issues?
+                                </label>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="lost_customer" id="lostYes"
+                                        value="Yes">
+                                    <label class="form-check-label" for="lostYes">Yes</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="lost_customer" id="lostNo"
+                                        value="No">
+                                    <label class="form-check-label" for="lostNo">No</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio" name="lost_customer" id="lostMaybe"
+                                        value="Not sure">
+                                    <label class="form-check-label" for="lostMaybe">Not sure</label>
+                                </div>
+                                <div class="form-outline" data-mdb-input-init>
+                                    <textarea class="form-control" rows="2" id="lostCustomerDetails"
+                                        name="lost_customer_details"></textarea>
+                                    <label class="form-label" for="lostCustomerDetails">If yes, what happened?</label>
+                                </div>
+                            </div>
+
+                            <!-- Question 5: How clients find you -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-globe text-info me-2"></i>
+                                    How do most of your new clients find you today?
+                                </label>
+                                <div class="form-outline" data-mdb-input-init>
+                                    <input type="text" class="form-control" id="clientDiscovery"
+                                        name="client_discovery">
+                                    <label class="form-label" for="clientDiscovery">e.g., Facebook, Google,
+                                        referrals</label>
+                                </div>
+                            </div>
+
+                            <!-- Question 6: Client discovery desire -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold mb-3">
+                                    <i class="fas fa-search text-success me-2"></i>
+                                    Do you wish more clients could find you online without extra marketing?
+                                </label>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="find_online" id="findYes"
+                                        value="Yes, absolutely">
+                                    <label class="form-check-label" for="findYes">Yes, absolutely</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="find_online" id="findMaybe"
+                                        value="Maybe, not sure">
+                                    <label class="form-check-label" for="findMaybe">Maybe, not sure</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="find_online" id="findNo"
+                                        value="No, I'm fine as is">
+                                    <label class="form-check-label" for="findNo">No, I'm fine as is</label>
+                                </div>
+                            </div>
+
+                            <!-- Question 7: Dream feature -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-magic text-purple me-2"></i>
+                                    If you could instantly have one new feature or tool to improve your business, what
+                                    would it be?
+                                </label>
+                                <div class="form-outline" data-mdb-input-init>
+                                    <input type="text" class="form-control" id="dreamFeature" name="dream_feature">
+                                    <label class="form-label" for="dreamFeature">Your answer...</label>
+                                </div>
+                            </div>
+
+                            <!-- Question 8: System value rating -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold mb-3">
+                                    <i class="fas fa-brain text-primary me-2"></i>
+                                    How valuable would an all-in-one system like PawTrack be?
+                                </label>
+                                <p class="small text-muted mb-3">
+                                    That lets clients book from your profile, handles reminders/payments, recommends
+                                    services based on pet data.
+                                </p>
+                                <input type="range" class="form-range" min="1" max="5" step="1" id="usefulnessRange"
+                                    name="usefulness_rating" value="3">
+                                <div class="d-flex justify-content-between">
+                                    <small class="text-muted">1 – Not useful</small>
+                                    <small class="text-muted">5 – Extremely useful</small>
+                                </div>
+                            </div>
+
+                            <!-- Question 9: Willing to pay -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold mb-3">
+                                    <i class="fas fa-pound-sign text-success me-2"></i>
+                                    Would you pay for a tool like this?
+                                </label>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="willing_to_pay" id="payYes"
+                                        value="Yes">
+                                    <label class="form-check-label" for="payYes">Yes</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="willing_to_pay" id="payMaybe"
+                                        value="Maybe, depends on price">
+                                    <label class="form-check-label" for="payMaybe">Maybe, depends on price</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="radio" name="willing_to_pay" id="payNo"
+                                        value="No">
+                                    <label class="form-check-label" for="payNo">No</label>
+                                </div>
+                                <div class="form-outline" data-mdb-input-init>
+                                    <input type="text" class="form-control" id="fairPrice" name="fair_price">
+                                    <label class="form-label" for="fairPrice">If yes or maybe, what would feel like a
+                                        fair monthly price?</label>
+                                </div>
+                            </div>
+
+                            <!-- Question 10: Email input -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-envelope text-primary me-2"></i>
+                                    Want early access or to share more feedback?
+                                </label>
+                                <div class="form-outline" data-mdb-input-init>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                    <label class="form-label" for="email">you@example.com</label>
+                                </div>
+                            </div>
+
+                            <!-- Business Name (Optional) -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-building text-secondary me-2"></i>
+                                    Business Name (Optional)
+                                </label>
+                                <div class="form-outline" data-mdb-input-init>
+                                    <input type="text" class="form-control" id="businessName" name="business_name">
+                                    <label class="form-label" for="businessName">Your business name</label>
+                                </div>
+                            </div>
+
+                            <!-- Location (Optional) -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-map-marker-alt text-secondary me-2"></i>
+                                    Location (Optional)
+                                </label>
+                                <div class="form-outline" data-mdb-input-init>
+                                    <input type="text" class="form-control" id="location" name="location">
+                                    <label class="form-label" for="location">City, Country</label>
+                                </div>
+                            </div>
+
+                            <!-- Consent Checkbox -->
+                            <div class="mb-3">
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" required type="checkbox" id="consentCheckbox" />
+                                    <label class="form-check-label" for="consentCheckbox">
+                                        I consent to PawTrack securely storing my email for early access notifications
+                                        and future contact about the platform.
+                                    </label>
+                                </div>
+                                <small class="d-block">
+                                    Your information will be handled in accordance with our
+                                    <a href="javascript:void(0)" data-mdb-toggle="modal"
+                                        data-mdb-target="#privacyModal">Privacy Policy</a>.
+                                </small>
+                            </div>
+
+                            <!-- Google reCAPTCHA -->
+                            <div class="mb-3 d-flex justify-content-center">
+                                <div class="g-recaptcha" data-sitekey="6LfKURIqAAAAAD4O4CZE_kYN6vW7g8_iQyR5LMcF"></div>
+                            </div>
+
+                            <!-- Submit button -->
+                            <div class="text-center">
+                                <button type="submit" class="btn z-max btn-primary btn-lg px-5" data-mdb-ripple-init>
+                                    <i class="fas fa-paper-plane me-2"></i>
+                                    Send Questionnaire
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="position-fixed bottom-0 start-0 w-100 bg-white shadow-lg border-top d-none"
+        style="z-index: 1055;">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-md-7">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-cookie-bite text-warning me-3 fs-4"></i>
+                        <div>
+                            <div class="fw-semibold mb-1">Cookie Notice</div>
+                            <div class="text-muted small">
+                                We use basic analytics to improve PawTrack. Enhanced analytics requires your consent
+                                <small>(Which helps us greatly!)</small>.
+                                <a href="javascript:void(0)" data-mdb-toggle="modal" data-mdb-target="#privacyModal"
+                                    class="text-decoration-underline text-primary">Learn more</a>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-5 text-end">
+                    <div class="d-flex gap-2 justify-content-end">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" id="declineCookiesBtn"
+                            data-mdb-ripple-init>
+                            Decline
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm" id="acceptCookiesBtn" data-mdb-ripple-init>
+                            Accept
+                        </button>
+                        <button type="button" class="btn-close ms-2" id="closeCookiesBtn" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="privacyModalLabel">
+                        Privacy Policy – PawTrack
+                    </h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-muted small">
+                    <p><strong>Effective Date:</strong> June 2025</p>
+
+                    <p><strong>1. Introduction</strong><br>
+                        PawTrack ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy
+                        outlines how we collect, use, and store personal data in line with UK GDPR regulations.</p>
+
+                    <p><strong>2. What We Collect</strong></p>
+                    <ul>
+                        <li><strong>Basic Analytics (No Consent Required):</strong> We collect anonymous, aggregated
+                            data about website usage including page views, session duration, and general geographic
+                            regions. This data cannot be used to identify individual users and is GDPR compliant without
+                            explicit consent.</li>
+                        <li><strong>Enhanced Analytics (Requires Consent):</strong> With your consent, we enable
+                            additional analytics features that may include user journey tracking and more detailed
+                            session information. All data remains anonymized.</li>
+                        <li><strong>Email Addresses:</strong> When you sign up for early access, we securely store your
+                            email to notify you when the platform becomes available.</li>
+                    </ul>
+
+                    <p><strong>3. How We Use Your Data</strong></p>
+                    <ul>
+                        <li>To understand website performance and user experience through anonymous analytics</li>
+                        <li>To send one-time updates regarding early access availability</li>
+                        <li>Enhanced analytics (only with consent) helps us improve specific user flows and features
+                        </li>
+                    </ul>
+
+                    <p><strong>4. Data Retention</strong><br>
+                        Your email will only be retained until early access invitations are complete, after which you
+                        can request removal at any time.</p>
+
+                    <p><strong>5. Third-Party Sharing</strong><br>
+                        We do not sell or share your data with third parties. Google Analytics is used solely for
+                        internal insights.</p>
+
+                    <p><strong>6. Your Rights</strong><br>
+                        Under UK GDPR, you have the right to access, correct, or request deletion of your data. To do
+                        so, contact us at <a href="mailto:privacy@pawtrack.uk">privacy@pawtrack.uk</a>.</p>
+
+                    <p><strong>7. Contact</strong><br>
+                        For any privacy-related questions, email us at <a
+                            href="mailto:privacy@pawtrack.uk">privacy@pawtrack.uk</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-mdb-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript" src="./dist/js/site.min.js"></script>
+    <script type="text/javascript" src="./dist/js/site-plugins.min.js"></script>
     <script src="./js/site.js"></script>
 </body>
 
